@@ -1,0 +1,1336 @@
+{
+	"info": {
+		"_postman_id": "5a0bdd34-6547-476e-a945-f270cd274a93",
+		"name": "micro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14040810",
+		"_collection_link": "https://danak-qweq-123.postman.co/workspace/Team-Workspace~182c3690-c3c7-497b-8c96-7182f268a8d3/collection/14040810-5a0bdd34-6547-476e-a945-f270cd274a93?action=share&source=collection_link&creator=14040810"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register as user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"amirshayan1381@yahoo.com\",\r\n    \"password\":\"test1234\",\r\n    \"fullName\":\"Shayan Zarei\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Auth url}}/auth/register/user"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"amirshayan1381@yahoo.com\",\r\n    \"password\":\"test1234\",\r\n    \"fullName\":\"Shayan Zarei\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Auth url}}/auth/register/user"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27-vjTA9CxWp0XpeEWkAWDrbHSI+CA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 15:52:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"با موفقیت ثبت شد\"\n}"
+						},
+						{
+							"name": "Validate",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Auth url}}/auth/register/user"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "276"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"114-CZxYpovGOEccw2NnoGFjNMoayKY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 15:53:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": {\n        \"isEmail\": \"email must be an email\",\n        \"isNotEmpty\": \"email should not be empty\"\n    },\n    \"password\": {\n        \"isStrongPassword\": \"Short Password\",\n        \"isNotEmpty\": \"password should not be empty\"\n    },\n    \"fullName\": {\n        \"isString\": \"fullName must be a string\",\n        \"isNotEmpty\": \"fullName should not be empty\"\n    }\n}"
+						},
+						{
+							"name": "Repeated",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"amirshayan1381@yahoo.com\",\r\n    \"password\":\"test1234\",\r\n    \"fullName\":\"Shayan Zarei\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Auth url}}/auth/register/user"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5a-CXNyEOam2mEMy/NbV3Of9Z1npmE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 15:54:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"ایمیل قبلا اضافه شده\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "Register as Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"amirshayan1381@yahoo.com\",\r\n    \"password\":\"test1234\",\r\n    \"fullName\":\"Shayan Zarei\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Auth url}}/auth/register/admin"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"amirshayan1381@yahoo.com\",\r\n    \"password\":\"test1234\",\r\n    \"fullName\":\"Shayan Zarei\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Auth url}}/auth/register/user"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27-vjTA9CxWp0XpeEWkAWDrbHSI+CA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 15:52:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"با موفقیت ثبت شد\"\n}"
+						},
+						{
+							"name": "Validate",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Auth url}}/auth/register/user"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "276"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"114-CZxYpovGOEccw2NnoGFjNMoayKY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 15:53:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": {\n        \"isEmail\": \"email must be an email\",\n        \"isNotEmpty\": \"email should not be empty\"\n    },\n    \"password\": {\n        \"isStrongPassword\": \"Short Password\",\n        \"isNotEmpty\": \"password should not be empty\"\n    },\n    \"fullName\": {\n        \"isString\": \"fullName must be a string\",\n        \"isNotEmpty\": \"fullName should not be empty\"\n    }\n}"
+						},
+						{
+							"name": "Repeated",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"amirshayan1381@yahoo.com\",\r\n    \"password\":\"test1234\",\r\n    \"fullName\":\"Shayan Zarei\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Auth url}}/auth/register/admin"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5a-CXNyEOam2mEMy/NbV3Of9Z1npmE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 15:54:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"ایمیل قبلا اضافه شده\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"amirshayan1381@yahoo.com\",\r\n    \"password\":\"test1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Auth url}}/auth/login"
+					},
+					"response": [
+						{
+							"name": "Validate",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Auth url}}/auth/login"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "180"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b4-Fs5MqCUhXr079DNUYoCC/+37gUo\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 15:56:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": {\n        \"isEmail\": \"email must be an email\",\n        \"isNotEmpty\": \"email should not be empty\"\n    },\n    \"password\": {\n        \"isStrongPassword\": \"Short Password\",\n        \"isNotEmpty\": \"password should not be empty\"\n    }\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"amirshayan1381@yahoo.com\",\r\n    \"password\":\"test1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Auth url}}/auth/login"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "190"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"be-JtW/T0aOc2Qe4R3qNXisUUUuWmk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 15:56:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjRlOWQwMmJiOWFiNTRkY2FlNzZlOSIsImlhdCI6MTcyMzEzMjU4OCwiZXhwIjoxNzI4MzE2NTg4fQ.T7FVdNl3ifvssAlRx280Qv_VGSzi3nJY6EPOd5EK7cM\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Send OTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"amirshayan1381@yahoo.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Auth url}}/auth/otprq"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"amirshayan1381@yahoo.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Auth url}}/auth/otprq"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4f-OMozVp/4zxcU1eiSxd0D/pGZcpc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 15:57:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"کد فعالسازی برای شما ارسال شد\",\n    \"code\": \"727910\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"amirshayan1381@yahoo.com\",\r\n    \"newPass\":\"test1234\",\r\n    \"repeatPass\":\"test1234\",\r\n    \"code\":\"432099\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Auth url}}/auth/resetpass"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"amirshayan1381@yahoo.com\",\r\n    \"newPass\":\"test1234\",\r\n    \"repeatPass\":\"test1234\",\r\n    \"code\":\"432099\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Auth url}}/auth/resetpass"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27-vjTA9CxWp0XpeEWkAWDrbHSI+CA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 16:00:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"با موفقیت ثبت شد\"\n}"
+						},
+						{
+							"name": "Wrong OTP",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"amirshayan1381@yahoo.com\",\r\n    \"newPass\":\"test1234\",\r\n    \"repeatPass\":\"test1234\",\r\n    \"code\":\"432099\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Auth url}}/auth/resetpass"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d-ydm8WW3xO3Zhy78TAjjZE9uBB74\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 16:00:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"کد اشتباه است\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get Current Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Admin token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{Auth url}}/users/current"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Auth url}}/users/current"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5f-IjWF6949bzuNtjVBeLNxdc64i98\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 16:02:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"66b4e9d02bb9ab54dcae76e9\",\n    \"email\": \"amirshayan1381@yahoo.com\",\n    \"fullName\": \"Shayan Zarei\"\n}"
+						},
+						{
+							"name": "Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Auth url}}/users/current"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-2G70JMAcAS6AQxEnRRF8Jju2Q/w\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 16:03:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": {\n        \"name\": \"JsonWebTokenError\",\n        \"message\": \"invalid token\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Create post (ADMIN)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{Post url}}/posts"
+					},
+					"response": [
+						{
+							"name": "Auth error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Post url}}/posts"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"44-g4uAl+JxLGF8PkUBz9Iz5Ln+BEs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 16:09:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"غیرمجاز\",\n    \"error\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						},
+						{
+							"name": "Validate",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Post url}}/posts"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "265"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"109-RNrEOZUWGQ7EVi2KeR7RGuDLEho\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 16:10:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": {\n        \"isString\": \"title must be a string\",\n        \"isNotEmpty\": \"title should not be empty\"\n    },\n    \"content\": {\n        \"isString\": \"content must be a string\",\n        \"isNotEmpty\": \"content should not be empty\"\n    },\n    \"link\": {\n        \"isString\": \"link must be a string\",\n        \"isNotEmpty\": \"link should not be empty\"\n    }\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"بهترین گوشی های بازار تیر 1403\",\r\n    \"content\": \"<p>بدنه متن پست </p>\" ,\r\n    \"link\":\"best-market-phone-tir-1403\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Post url}}/posts"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "266"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10a-G8Gzl9kKBhPK7Ykyw3HXSJsewak\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 16:14:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"با موفقیت ثبت شد\",\n    \"data\": {\n        \"title\": \"بهترین گوشی های بازار تیر 1403\",\n        \"content\": \"<p>بدنه متن پست </p>\",\n        \"link\": \"best-market-phone-tir-1403\",\n        \"author\": \"66b4ed491a1a821694f6b64f\",\n        \"_id\": \"66b4eecf3831316481fafac3\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all  (USER)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{User Token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{Post url}}/posts"
+					},
+					"response": [
+						{
+							"name": "Get all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Post url}}/posts"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "640"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"280-WzbUNUITvlgLr6vCZe+TTJWThYM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 16:15:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"66b49e22ae603844025d42ef\",\n        \"title\": \"test\",\n        \"content\": \"<p>Hello world</p>\",\n        \"link\": \"test\",\n        \"author\": \"66b395dc45087f4bc528d77c\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"66b4a42a17c0678b78714492\",\n        \"title\": \"test\",\n        \"content\": \"<p>Hello world</p>\",\n        \"link\": \"test1\",\n        \"author\": \"66b395dc45087f4bc528d77c\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"66b4a44de16e99c2fc1afc90\",\n        \"title\": \"test\",\n        \"content\": \"<p>Hello world</p>\",\n        \"link\": \"test2\",\n        \"author\": \"66b395dc45087f4bc528d77c\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"66b4eecf3831316481fafac3\",\n        \"title\": \"بهترین گوشی های بازار تیر 1403\",\n        \"content\": \"<p>بدنه متن پست </p>\",\n        \"link\": \"best-market-phone-tir-1403\",\n        \"author\": \"66b4ed491a1a821694f6b64f\",\n        \"__v\": 0\n    }\n]"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Post url}}/posts"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"44-g4uAl+JxLGF8PkUBz9Iz5Ln+BEs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 16:14:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"غیرمجاز\",\n    \"error\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						},
+						{
+							"name": "Role Validate",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Post url}}/posts"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"60-4OUuZ2YVqo1J+tlwfccSmfGx3w8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 16:16:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"شما مجوز کافی ندارید \",\n    \"code\": \"شما مجوز کافی ندارید \"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get one (USER)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{User Token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Post url}}/posts/:link",
+							"host": [
+								"{{Post url}}"
+							],
+							"path": [
+								"posts",
+								":link"
+							],
+							"variable": [
+								{
+									"key": "link",
+									"value": "best-market-phone-tir-1403"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get one",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Post url}}/posts/:link",
+									"host": [
+										"{{Post url}}"
+									],
+									"path": [
+										"posts",
+										":link"
+									],
+									"variable": [
+										{
+											"key": "link",
+											"value": "best-market-phone-tir-1403"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "207"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cf-2RAnLZH5HwIQXc6YC3pIg1adn6I\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 16:17:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"66b4eecf3831316481fafac3\",\n    \"title\": \"بهترین گوشی های بازار تیر 1403\",\n    \"content\": \"<p>بدنه متن پست </p>\",\n    \"link\": \"best-market-phone-tir-1403\",\n    \"author\": \"Shayan Zarei\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Post url}}/posts/:link",
+									"host": [
+										"{{Post url}}"
+									],
+									"path": [
+										"posts",
+										":link"
+									],
+									"variable": [
+										{
+											"key": "link",
+											"value": "best-market-phone-tir"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "106"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6a-ml9DcI5zBBjq0tyruYLovjqhd6U\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 16:19:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"موردی با این مشخصات وجود ندارد\",\n    \"error\": \"Not Found\",\n    \"statusCode\": 404\n}"
+						}
+					]
+				},
+				{
+					"name": "Update post (ADMIN)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"بهترین گوشی های بازار تیر 1403\",\r\n    \"content\": \"<p>بدنه متن پست </p>\" ,\r\n    \"link\":\"best-market-phone-tir-1403\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Post url}}/posts/:link",
+							"host": [
+								"{{Post url}}"
+							],
+							"path": [
+								"posts",
+								":link"
+							],
+							"variable": [
+								{
+									"key": "link",
+									"value": "best-market-phone-tir-1403"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update post",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"بهترین گوشی های بازار تیر 1403\",\r\n    \"content\": \"<p>بدنه متن پست </p>\" ,\r\n    \"link\":\"best-market-phone-tir-1403\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Post url}}/posts/:link",
+									"host": [
+										"{{Post url}}"
+									],
+									"path": [
+										"posts",
+										":link"
+									],
+									"variable": [
+										{
+											"key": "link",
+											"value": "best-market-phone-tir-1403"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "266"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10a-mKMtHaC5wpdnxr00hpQiE7hPDL4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Aug 2024 16:21:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"با موفقیت ثبت شد\",\n    \"data\": {\n        \"_id\": \"66b4eecf3831316481fafac3\",\n        \"title\": \"بهترین گوشی های بازار تیر 1403\",\n        \"content\": \"<p>بدنه متن پست </p>\",\n        \"link\": \"best-market-phone-tir-1403\",\n        \"author\": \"66b4ed491a1a821694f6b64f\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

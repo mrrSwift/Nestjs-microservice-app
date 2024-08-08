@@ -5,6 +5,7 @@ import errorHandler from './middlewares/errorhandler';
 import { BadRequestException, ValidationError, ValidationPipe } from '@nestjs/common';
 import config from './config/config';
 
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.connectMicroservice({

@@ -37,7 +37,7 @@ export class PostsService {
   
     const post = await this.PostModel.findOne({ link })
     if (!post) {
-      throw new NotFoundException(this.i18n.t('noFound.item_id'))
+      throw new NotFoundException(this.i18n.t('notFound.item_id'))
     }
     return new Promise((resolve, reject) => {
       const paylod = { userId: post.author }
