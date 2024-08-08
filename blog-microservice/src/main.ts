@@ -4,10 +4,11 @@ import { AppModule } from './app.module';
 import errorHandler from './middlewares/errorhandler';
 import config from './config/config';
 import { BadRequestException, ValidationError, ValidationPipe } from '@nestjs/common';
+import helmet from 'helmet';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.use(helmet());
   app.useGlobalPipes(new ValidationPipe({
     exceptionFactory: (errors: ValidationError[]) => {
       const es = {}

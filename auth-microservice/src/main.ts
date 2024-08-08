@@ -4,10 +4,12 @@ import {  Transport } from '@nestjs/microservices';
 import errorHandler from './middlewares/errorhandler';
 import { BadRequestException, ValidationError, ValidationPipe } from '@nestjs/common';
 import config from './config/config';
+import helmet from 'helmet';
 
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.use(helmet());
   app.connectMicroservice({
     transport: Transport.TCP,
     options: {
