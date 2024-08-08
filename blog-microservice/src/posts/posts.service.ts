@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { BadRequestException, Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
@@ -8,6 +8,7 @@ import { Post } from './schemas/post.schema';
 import { ClientProxy } from '@nestjs/microservices';
 import { DataUserDTO, UserDto } from './dto/user.dto';
 import { I18nService } from 'nestjs-i18n';
+import { NewPost, PostInter } from './interfaces/post.interface';
 
 
 
@@ -19,7 +20,7 @@ export class PostsService {
     private readonly i18n: I18nService
   ) { }
 
-  async create(data: CreatePostDto, user: DataUserDTO): Promise<object> {
+  async create(data: CreatePostDto, user: DataUserDTO): Promise<NewPost> {
     const { content, link, title } = data
     const post = await this.PostModel.findOne({ link })
     if (post) {
@@ -29,16 +30,17 @@ export class PostsService {
     return { msg: this.i18n.t('response.success_save'), data: newPost }
   }
 
-  async findAll(): Promise<object> {
+  async findAll(): Promise<PostInter[]> {
     return await this.PostModel.find({});
   }
 
-  async findOne(link: string): Promise<object> {
+  async findOne(link: string): Promise<PostInter> {
   
-    const post = await this.PostModel.findOne({ link })
+    const post = await this.PostModel.findOne({ link }).select('title content link author')
     if (!post) {
       throw new NotFoundException(this.i18n.t('notFound.item_id'))
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     return new Promise((resolve, reject) => {
       const paylod = { userId: post.author }
       this.authClient.send<UserDto>({ cmd: 'popUser' }, paylod).pipe().subscribe((data: UserDto) => {
@@ -47,7 +49,7 @@ export class PostsService {
       })
     })
   }
-  async update(linkO: string, data: UpdatePostDto): Promise<object> {
+  async update(linkO: string, data: UpdatePostDto): Promise<NewPost> {
     const { title, link, content } = data
     const post = await this.PostModel.findOne({ link: linkO })
     if (!post) {
