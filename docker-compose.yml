@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  # Node.js service 1
+  nestjs1:
+    image: node:14
+    container_name: nestjs_app_3000
+    working_dir: /app
+    volumes:
+      - ./auth-microservice:/app
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install && npm run build && npm run start:prod"
+    depends_on:
+      - mongo1
+    environment:
+      - MONGO_URL=mongodb://mongo1:27017/db
+
+  # Node.js service 2
+  nestjs2:
+    image: node:14
+    container_name: nestjs_app_3001
+    working_dir: /app
+    volumes:
+      - ./blog-microservice:/app
+    ports:
+      - "3001:3001"
+    command: sh -c "npm install && npm run build && npm run start:prod"
+    depends_on:
+      - mongo2
+    environment:
+      - MONGO_URL=mongodb://mongo2:27018/db
+
+  # MongoDB service 1
+  mongo1:
+    image: mongo:latest
+    container_name: mongo_27017
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo1_data:/data/db
+
+  # MongoDB service 2
+  mongo2:
+    image: mongo:latest
+    container_name: mongo_27018
+    ports:
+      - "27018:27018"
+    volumes:
+      - mongo2_data:/data/db
+
+  # Nginx service
+  nginx:
+    image: nginx:latest
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - nestjs1
+      - nestjs2
+
+volumes:
+  mongo1_data:
+  mongo2_data:
